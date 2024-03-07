@@ -458,7 +458,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -717,14 +717,14 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -1509,6 +1509,7 @@ GameObject:
   - component: {fileID: 1266997560}
   - component: {fileID: 1266997562}
   - component: {fileID: 1266997561}
+  - component: {fileID: 1266997565}
   - component: {fileID: 1266997564}
   m_Layer: 5
   m_Name: Bar
@@ -1627,6 +1628,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1266997565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266997559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7650519e352378f48ba2a7d913351a83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 536321725}
+  _healthSlider: {fileID: 1266997564}
 --- !u!1 &1569540653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,7 +1706,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1359388234, guid: bae75e06bfafb4446b51cbea9c7b8842, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
   m_FillAmount: 1
@@ -1772,7 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 1148455570}
   _healthSlider: {fileID: 1569540659}
-  _speed: 1
+  _speed: 0.05
 --- !u!1 &1652316405
 GameObject:
   m_ObjectHideFlags: 0

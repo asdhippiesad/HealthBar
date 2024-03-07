@@ -27,11 +27,13 @@ public class HealthBar : HealthUIElement
 
     private IEnumerator SetHealth(float targetValue)
     {
-        targetValue = CurrentHealth;
+        float startValue = _healthSlider.value;
+        float elapsedTime = 0f;
 
-        while (_healthSlider.value > targetValue)
+        while (_healthSlider.value != targetValue)
         {
-            _healthSlider.value = Mathf.MoveTowards(_healthSlider.value, targetValue, _speed * Time.deltaTime);
+            _healthSlider.value = Mathf.MoveTowards(startValue, targetValue, elapsedTime / _speed);
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 
