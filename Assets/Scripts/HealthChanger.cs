@@ -5,15 +5,14 @@ public class HealthChanger : HealthUIElement
 {
     [SerializeField] private Slider _healthSlider;
 
-    private void UpDateHealthUI(float health)
+    private void UpDateHealthUI()
     {
         if (_healthSlider != null)
         {
-            _healthSlider.value = health;
+            _healthSlider.value = CurrentHealth;
             _healthSlider.maxValue = MaxHealth;
         }
     }
 
-    protected override void HealthChanged(float targetValue) => _health.Changed += UpDateHealthUI; 
-
+    protected override void HealthChanged() => _health.Changed += UpDateHealthUI; 
 }

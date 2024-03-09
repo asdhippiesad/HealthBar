@@ -5,11 +5,10 @@ public abstract class HealthUIElement : MonoBehaviour
     [SerializeField] protected Health _health;
 
     protected float MaxHealth => _health.MaxHealth;
+
     protected float CurrentHealth => _health.CurrentHealth;
 
-    private void OnEnable() => _health.Changed += HealthChanged;
+     private void Awake() => _health.Changed += HealthChanged;
 
-    private void OnDisable() => _health.Changed -= HealthChanged;
-
-    protected abstract void HealthChanged(float healthNormalized);
+    protected abstract void HealthChanged();
 }

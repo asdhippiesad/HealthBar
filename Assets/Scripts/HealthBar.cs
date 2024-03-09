@@ -9,34 +9,27 @@ public class HealthBar : HealthUIElement
 
     private Coroutine _coroutine;
 
-    private void Awake()
-    {
-        _healthSlider.maxValue = MaxHealth;
-        _healthSlider.value = CurrentHealth;
-    }
+    private void OnEnable() => _health.Changed += HealthChanged;
 
-    protected override void HealthChanged(float healthNormalized)
+    protected override void HealthChanged()
     {
-        _healthSlider.value = healthNormalized;
-
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
-        _coroutine = StartCoroutine(SetHealth(healthNormalized));
+        _coroutine = StartCoroutine(SetHealth());
     }
 
-    private IEnumerator SetHealth(float targetValue)
+    private IEnumerator SetHealth()
     {
-        float startValue = _healthSlider.value;
-        float elapsedTime = 0f;
+        float initialValue = _healthSlider.value;
 
-        while (_healthSlider.value != targetValue)
+        while (!Mathf.Approximately(_healthSlider.value, CurrentHealth))
         {
-            _healthSlider.value = Mathf.MoveTowards(startValue, targetValue, elapsedTime / _speed);
-            elapsedTime += Time.deltaTime;
+            initialValue = Mathf.MoveTowards(initialValue, CurrentHealth, _speed * Time.deltaTime);
+            _healthSlider.value = initialValue;
             yield return null;
         }
 
-        _healthSlider.value = targetValue;
+        _healthSlider.value = CurrentHealth;
     }
 }

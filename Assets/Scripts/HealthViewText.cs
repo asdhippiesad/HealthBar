@@ -5,7 +5,7 @@ public class HealthViewText : HealthUIElement
 {
     [SerializeField] private TextMeshProUGUI _text;
 
-    private void Start() => HealthChanged(MaxHealth);
+    private void Start() => HealthChanged();
 
-    protected override void HealthChanged(float current) => _text.text = $"{current}/ {MaxHealth}";
+    protected override void HealthChanged() => _text.text = $"{CurrentHealth}/ {MaxHealth}";
 }
