@@ -14,5 +14,7 @@ public class HealthChanger : HealthUIElement
         }
     }
 
-    protected override void HealthChanged() => _health.Changed += UpDateHealthUI; 
+    protected override void HealthChanged() => _health.Changed += UpDateHealthUI;
+
+    private void OnDisable() => _health.Changed -= UpDateHealthUI;
 }

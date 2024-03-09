@@ -9,8 +9,6 @@ public class HealthBar : HealthUIElement
 
     private Coroutine _coroutine;
 
-    private void OnEnable() => _health.Changed += HealthChanged;
-
     protected override void HealthChanged()
     {
         if (_coroutine != null)
